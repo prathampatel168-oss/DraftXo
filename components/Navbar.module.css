@@ -1,0 +1,66 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+.navLinks {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.navLinks a {
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.navLinks a:hover {
+    opacity: 1;
+    color: var(--primary);
+}
+
+.authButtons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.loginBtn {
+    font-weight: 600;
+}
+
+.signupBtn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+}
+
+.dashboardBtn {
+    margin-left: 10px;
+    color: var(--secondary);
+    font-weight: 600;
+}

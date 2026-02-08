@@ -1,0 +1,394 @@
+/* Cinematic Hero Page Styles */
+
+.heroContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #111 0%, #000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Metallic Watermark */
+.heroContainer::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  /* Increased size */
+  height: 80%;
+  transform: translate(-50%, -50%);
+  background: url('/dx-clean.png?v=6') no-repeat center center;
+  background-size: contain;
+  opacity: 0.04;
+  /* Slightly lower opacity */
+  mix-blend-mode: overlay;
+  z-index: 0;
+  pointer-events: none;
+  animation: slowPulse 10s ease-in-out infinite;
+  /* Fade out edges to prevent "Box" look */
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* Top-Left Brand Corner */
+.brandCorner {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Top Left Logo - Clean, No Box */
+.cornerLogo {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(255, 105, 180, 0.5));
+  background: transparent !important;
+  border: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+.cornerText {
+  font-family: var(--font-bodoni);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+/* ===========================
+   INTRO OVERLAY 
+   =========================== */
+.introOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.introHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Intro Logo - Clean, No Box */
+.introLogo {
+  width: 400px;
+  max-width: 80vw;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  background: transparent !important;
+  border: none !important;
+  /* Premium Pink/White Glow */
+  filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.8)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.5));
+  animation: introSequence 2.5s ease-in-out forwards;
+}
+
+@keyframes introSequence {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(255, 105, 180, 0.8)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.5));
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(3);
+    filter: blur(10px);
+  }
+}
+
+/* Visibility State for Main Content */
+.mainContentWrapper {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.contentVisible {
+  opacity: 1;
+}
+
+/* Center Content Area */
+.centerContent {
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.logoContainer {
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: simpleFadeIn 1s ease-out forwards;
+  animation-delay: 0.2s;
+  background: transparent !important;
+  /* Ensure no box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center Logo - Clean, No Box */
+.logo {
+  width: 400px;
+  max-width: 90vw;
+  height: auto;
+  object-fit: contain;
+  background: transparent !important;
+  border: none !important;
+  margin: 0;
+  padding: 0;
+  /* Premium Soft White/Pink Glow */
+  filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.6)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+  animation: logoPulse 4s infinite ease-in-out;
+}
+
+@keyframes logoPulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.6)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+  }
+
+  50% {
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 25px rgba(255, 105, 180, 0.8)) drop-shadow(0 0 50px rgba(255, 255, 255, 0.6));
+  }
+
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(255, 105, 180, 0.6)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4));
+  }
+}
+
+.titleContainer {
+  text-align: center;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+/* Main Title */
+.mainTitle {
+  font-family: var(--font-bodoni);
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: #ffffff;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: textRise 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+/* Subtitle */
+.subTitle {
+  font-family: var(--font-outfit);
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlideUp 1s ease-out forwards;
+  animation-delay: 1.0s;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Enter Button */
+.enterBtn {
+  padding: 1.2rem 4rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-family: var(--font-outfit);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  opacity: 0;
+  animation: fadeSlideUp 1s ease-out forwards;
+  animation-delay: 1.4s;
+}
+
+.enterBtn:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+  letter-spacing: 6px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes simpleFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes textRise {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slowPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.05;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.08;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.05;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 3.5rem;
+    letter-spacing: 0px;
+  }
+
+  .introLogo {
+    width: 250px;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .brandCorner {
+    top: 20px;
+    left: 20px;
+  }
+}
+
+/* ===========================
+   PAGE TRANSITION STYLES
+   =========================== */
+
+/* Black overlay for smooth fade-out */
+.transitionOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlayActive {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Exit animation for main content */
+.contentExit {
+  animation: zoomFadeOut 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Cinematic Zoom Out + Fade to Black */
+@keyframes zoomFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+    /* Smooth zoom in while fading */
+    filter: blur(20px);
+  }
+}

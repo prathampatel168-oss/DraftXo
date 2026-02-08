@@ -1,0 +1,118 @@
+.main {
+    min-height: 100vh;
+    padding-top: 100px;
+    background: radial-gradient(circle at bottom right, rgba(188, 19, 254, 0.1), transparent 70%);
+}
+
+.container {
+    padding-bottom: 60px;
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 60px;
+    font-size: 1.1rem;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+    /* Align for scale effect */
+}
+
+.card {
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 350px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+    border: 1px solid var(--glass-border);
+}
+
+.proCard {
+    transform: scale(1.05);
+    border-color: var(--primary);
+    background: rgba(0, 243, 255, 0.05);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+    z-index: 2;
+}
+
+.badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: #000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.planName {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.price span {
+    font-size: 1rem;
+    color: #888;
+    font-weight: 400;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.features li {
+    margin-bottom: 15px;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+}
+
+.features li::before {
+    content: '✓';
+    color: var(--primary);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.planBtn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.planBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+}

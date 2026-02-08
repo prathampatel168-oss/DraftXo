@@ -1,0 +1,14 @@
+.dashboardContainer {
+    display: flex;
+    min-height: 100vh;
+}
+
+.mainContent {
+    flex: 1;
+    margin-left: 250px;
+    /* Width of Sidebar */
+    padding: 20px;
+    background: linear-gradient(135deg, #050505 0%, #0a0a0a 100%);
+    position: relative;
+    overflow: hidden;
+}

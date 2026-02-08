@@ -1,0 +1,202 @@
+.agentNode {
+    width: 100%;
+    height: 100%;
+    /* Constrain width */
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid rgba(188, 19, 254, 0.3);
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.1);
+    color: #fff;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.agentNode:hover {
+    border-color: var(--secondary);
+    box-shadow: 0 0 30px rgba(188, 19, 254, 0.2);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.content {
+    color: #ccc;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+
+    /* Text Wrapping Logic */
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    padding: 5px 0;
+}
+
+.userImage {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.coverImageContainer {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.coverImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contentParams {
+    padding: 15px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    background: #0f0;
+    border-radius: 50%;
+    margin-right: 5px;
+    box-shadow: 0 0 5px #0f0;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.handleTop {
+    width: 10px !important;
+    height: 10px !important;
+    background: #fff !important;
+    top: -5px !important;
+}
+
+.handleBottom {
+    width: 8px !important;
+    height: 8px !important;
+    background: #888 !important;
+    border: none !important;
+    bottom: -4px !important;
+}
+
+.aiResult {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(0, 243, 255, 0.1);
+    border-left: 2px solid #00f3ff;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #fff;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.resultHeader {
+    font-weight: 700;
+    color: #00f3ff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+.runBtn {
+    background: linear-gradient(135deg, #bc13fe, #7b68ee);
+    border: none;
+    padding: 4px 12px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.runBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 10px rgba(188, 19, 254, 0.4);
+}
+
+.runBtn:disabled {
+    background: #555;
+    cursor: wait;
+    transform: none;
+}
+
+.processing {
+    background: #ff00de !important;
+    box-shadow: 0 0 10px #ff00de !important;
+    animation: rapidPulse 0.5s infinite alternate !important;
+}
+
+@keyframes rapidPulse {
+    from {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

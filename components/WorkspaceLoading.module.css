@@ -1,0 +1,337 @@
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9999999;
+    /* Max Z-Index */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-outfit);
+    overflow: hidden;
+}
+
+/* Cinematic Background Effect */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(16, 16, 20, 0) 0%, #000 70%),
+        repeating-linear-gradient(90deg, #000 0px, #000 50px, #111 51px, #111 52px);
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+    animation: gridMove 5s linear infinite;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.welcomeText {
+    font-family: var(--font-bodoni);
+    font-size: 5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    z-index: 10;
+    opacity: 0;
+    animation: textReveal 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    margin-bottom: 3rem;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+/* Optional Glitch Effect Line */
+.welcomeText::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background: #ff00de;
+    animation: lineExtend 1.5s ease-out forwards 0.5s;
+    box-shadow: 0 0 20px #ff00de;
+}
+
+.statusWrapper {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.status {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite alternate;
+}
+
+.progressBar {
+    width: 300px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    width: 50%;
+    position: absolute;
+    left: -50%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes gridMove {
+    0% {
+        transform: perspective(500px) rotateX(60deg) translateY(0);
+    }
+
+    100% {
+        transform: perspective(500px) rotateX(60deg) translateY(52px);
+    }
+}
+
+@keyframes textReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes lineExtend {
+    0% {
+        width: 0%;
+        opacity: 0;
+    }
+
+    100% {
+        width: 100px;
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* Blossoming Flower Animation */
+.flowerContainer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.3));
+    z-index: 5;
+}
+
+.petal {
+    position: absolute;
+    width: 60px;
+    height: 120px;
+    background: linear-gradient(to top, #000, #ff00de 40%, #00f3ff);
+    border-radius: 50% 50% 0 0;
+    transform-origin: bottom center;
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(255, 0, 222, 0.5);
+    animation: bloom 3s ease-in-out infinite alternate;
+}
+
+.petal:nth-child(1) {
+    transform: rotate(0deg) translateY(-20px);
+    animation-delay: 0s;
+}
+
+.petal:nth-child(2) {
+    transform: rotate(45deg) translateY(-20px);
+    animation-delay: 0.1s;
+}
+
+.petal:nth-child(3) {
+    transform: rotate(90deg) translateY(-20px);
+    animation-delay: 0.2s;
+}
+
+.petal:nth-child(4) {
+    transform: rotate(135deg) translateY(-20px);
+    animation-delay: 0.3s;
+}
+
+.petal:nth-child(5) {
+    transform: rotate(180deg) translateY(-20px);
+    animation-delay: 0.4s;
+}
+
+.petal:nth-child(6) {
+    transform: rotate(225deg) translateY(-20px);
+    animation-delay: 0.5s;
+}
+
+.petal:nth-child(7) {
+    transform: rotate(270deg) translateY(-20px);
+    animation-delay: 0.6s;
+}
+
+.petal:nth-child(8) {
+    transform: rotate(315deg) translateY(-20px);
+    animation-delay: 0.7s;
+}
+
+.flowerCenter {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #fff, #ff00de);
+    border-radius: 50%;
+    box-shadow: 0 0 30px #fff, 0 0 60px #ff00de;
+    z-index: 2;
+    animation: centerPulse 2s ease-in-out infinite;
+}
+
+@keyframes bloom {
+    0% {
+        transform: rotate(var(--r, 0deg)) translateY(0) scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotate(var(--r, 0deg)) translateY(-40px) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes centerPulse {
+    0% {
+        transform: scale(0.8);
+        box-shadow: 0 0 20px #fff;
+    }
+
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 50px #fff, 0 0 80px #ff00de;
+    }
+
+    100% {
+        transform: scale(0.8);
+        box-shadow: 0 0 20px #fff;
+    }
+}
+
+.statusWrapper {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.status {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #b9b9b9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.progressBar {
+    width: 300px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, #ff00de, #00f3ff);
+    width: 0%;
+    animation: progress 3.5s ease-in-out forwards;
+    box-shadow: 0 0 15px #00f3ff;
+}
+
+@keyframes spinRing {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes corePulse {
+    from {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+
+    to {
+        transform: scale(1.2);
+        opacity: 1;
+        box-shadow: 0 0 30px #fff, 0 0 60px #ff00de, 0 0 80px #ff00de;
+    }
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+
+    20% {
+        width: 10%;
+    }
+
+    50% {
+        width: 40%;
+    }
+
+    80% {
+        width: 85%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

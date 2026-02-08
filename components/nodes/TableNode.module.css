@@ -1,0 +1,120 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    min-width: 150px;
+    min-height: 100px;
+}
+
+.nodeBody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    min-height: 20px;
+}
+
+.tableHeader {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #00f3ff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    flex: 1;
+    text-align: center;
+}
+
+.controls {
+    display: flex;
+    gap: 4px;
+}
+
+.miniBtn {
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    color: #00f3ff;
+    font-size: 0.6rem;
+    padding: 2px 4px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+.miniBtn:hover {
+    background: rgba(0, 243, 255, 0.3);
+}
+
+.table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+    /* Allow flexible column widths */
+}
+
+.cell {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px;
+    /* Increased padding */
+    font-size: 0.8rem;
+    color: #fff;
+    text-align: left;
+    /* Better for text */
+    vertical-align: top;
+    cursor: text;
+    transition: background 0.2s;
+    background: rgba(0, 0, 0, 0.2);
+
+    /* Text Wrapping Logic */
+    white-space: pre-wrap;
+    word-break: break-word;
+    min-width: 80px;
+    /* Minimum width for usability */
+    max-width: 300px;
+}
+
+.cell:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cellInput {
+    width: 100%;
+    min-height: 40px;
+    /* Minimum height for edit mode */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.8rem;
+    text-align: left;
+    outline: none;
+    padding: 2px;
+    margin: 0;
+    display: block;
+    resize: vertical;
+    /* Allow manual vertical resize */
+    overflow: hidden;
+}
+
+.cellInput:focus {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.handle {
+    width: 10px;
+    height: 10px;
+    background: #00f3ff;
+}
